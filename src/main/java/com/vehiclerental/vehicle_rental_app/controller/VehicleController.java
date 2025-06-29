@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class VehicleController {
     @GetMapping("/hello")
     public String sayHello() {
-        return "Hello, Vehicle Rental App!";
+        //return "Hello, Vehicle Rental App!";
+        return "Hello, This is Vehicle Rental Backend App";
     }
 }
 
