@@ -2,5 +2,5 @@ package com.vehiclerental.vehicle_rental_app.enums;
 
 public enum ReservationType {
     ONLINE,
-    AT_DESK
+    WALK_IN
 }
