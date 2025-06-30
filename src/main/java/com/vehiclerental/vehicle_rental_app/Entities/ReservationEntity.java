@@ -4,10 +4,12 @@ import com.vehiclerental.vehicle_rental_app.enums.ReservationStatus;
 import com.vehiclerental.vehicle_rental_app.enums.ReservationType;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+@NoArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -53,9 +55,6 @@ public class ReservationEntity {
 
     @Column(name = "IS_INSURANCE_SELECTED", nullable = false)
     private boolean isInsuranceSelected;
-
-    public ReservationEntity() {
-    }
 
     public ReservationEntity(LocalDateTime startDate,
                              LocalDateTime endDate,

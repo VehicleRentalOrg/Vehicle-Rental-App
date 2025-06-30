@@ -3,11 +3,13 @@ package com.vehiclerental.vehicle_rental_app.Entities;
 import com.vehiclerental.vehicle_rental_app.enums.EmpRole;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
 import java.time.Period;
 
+@NoArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -35,7 +37,7 @@ public class EmployeeEntity {
     private String state;
 
     @Column(name = "ZIP_CODE", length = 6, nullable = false)
-    private Integer zipCode;
+    private String zipCode;
 
     @Column(name = "DOB", nullable = false)
     private LocalDate dob;
@@ -53,15 +55,12 @@ public class EmployeeEntity {
     @Column(name = "END_DATE", nullable = false)
     private LocalDate endDate;
 
-    public EmployeeEntity() {
-    }
-
     public EmployeeEntity(String firstName,
                           String lastName,
                           String address,
                           String city,
                           String state,
-                          Integer zipCode,
+                          String zipCode,
                           LocalDate dob,
                           String email,
                           EmpRole role,

@@ -2,11 +2,13 @@ package com.vehiclerental.vehicle_rental_app.Entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
 import java.time.Period;
 
+@NoArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -31,7 +33,7 @@ public class CustomerEntity {
     private String city;
 
     @Column(name = "ZIP_CODE", nullable = false, length = 6)
-    private Integer zipCode;
+    private String zipCode;
 
     @Column(name = "DOB", nullable = false)
     private LocalDate dob;
@@ -42,14 +44,11 @@ public class CustomerEntity {
     @Column(name = "PHONE_NUM", nullable = false, unique = true, length = 15)
     private String phoneNumber;
 
-    public CustomerEntity() {
-    }
-
     public CustomerEntity(String firstName,
                           String lastName,
                           String address,
                           String city,
-                          Integer zipCode,
+                          String zipCode,
                           LocalDate dob,
                           String email,
                           String phoneNumber) {

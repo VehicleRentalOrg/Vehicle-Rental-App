@@ -4,8 +4,10 @@ import com.vehiclerental.vehicle_rental_app.enums.VehicleStatus;
 import com.vehiclerental.vehicle_rental_app.enums.VehicleType;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@NoArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -39,9 +41,6 @@ public class VehicleEntity {
 
     @Column(name = "FEATURES", columnDefinition = "TEXT")
     private String features;
-
-    // Constructors
-    public VehicleEntity() {}
 
     public VehicleEntity(String make,
                          Integer year,
