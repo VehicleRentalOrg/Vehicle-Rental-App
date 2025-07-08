@@ -15,7 +15,6 @@ public class VehicleController {
     public String secureHello() {
         return "Hello, This is a secured endpoint!";
     }
-
 }
 
 
