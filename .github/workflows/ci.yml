@@ -20,8 +20,5 @@ jobs:
           distribution: temurin
           java-version: 17
 
-      - name: ⚙️ Build with Maven
-        run: mvn clean install
-
-      - name: 🧪 Run tests
-        run: mvn test
+      - name: ⚙️ Build and Test with Coverage
+        run: mvn clean verify
