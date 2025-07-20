@@ -18,7 +18,7 @@ import java.time.Period;
 @Getter
 @Setter
 @Document(collection = "employees")
-public class EmployeeEntity {
+public class Employee {
 
     @Id
     private String empId;
