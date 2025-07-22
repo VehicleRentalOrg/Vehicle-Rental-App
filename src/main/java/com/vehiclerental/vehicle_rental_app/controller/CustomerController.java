@@ -1,12 +1,9 @@
 package com.vehiclerental.vehicle_rental_app.controller;
 
-import com.vehiclerental.vehicle_rental_app.entities.Customer;
+import com.vehiclerental.vehicle_rental_app.model.CustomersListResponse;
 import com.vehiclerental.vehicle_rental_app.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/customer")
@@ -20,17 +17,17 @@ public class CustomerController {
     }
 
     @GetMapping("/all")
-    public List<Customer> getAllCustomers() {
+    public CustomersListResponse getAllCustomers() {
         return customerService.getAllCustomers();
     }
 
-    @GetMapping("/id")
-    public Optional<Customer> getCustomerById(@RequestParam String id) {
+    @GetMapping("/{id}")
+    public CustomersListResponse getCustomerById(@PathVariable String id) {
         return customerService.getCustomerById(id);
     }
 
-    @PostMapping("/create")
-    public Customer createCustomer(@RequestBody Customer customer) {
-        return customerService.createCustomer(customer);
-    }
+//    @PostMapping("/create")
+//    public BaseResponse<Customer> createCustomer(@RequestBody Customer customer) {
+//        return customerService.createCustomer(customer);
+//    }
 }
