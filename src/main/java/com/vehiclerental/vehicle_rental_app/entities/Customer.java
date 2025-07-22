@@ -1,9 +1,6 @@
 package com.vehiclerental.vehicle_rental_app.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -17,7 +14,7 @@ import java.time.Period;
 @Getter
 @Setter
 @Document(collection = "customers")
-public class CustomerEntity {
+public class Customer {
 
     @Id
     private String customerId; // MongoDB usually uses String (ObjectId)

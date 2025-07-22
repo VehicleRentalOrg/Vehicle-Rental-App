@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Document(collection = "reservations")
-public class ReservationEntity {
+public class Reservation {
 
     @Id
     private String reservationId; // MongoDB ID, typically String or ObjectId
@@ -27,11 +27,11 @@ public class ReservationEntity {
     private String pickupLocation;
     private String dropOffLocation;
     @DBRef
-    private VehicleEntity vehicle;
+    private Vehicle vehicle;
     @DBRef
-    private EmployeeEntity employee;
+    private Employee employee;
     @DBRef
-    private CustomerEntity customer;
+    private Customer customer;
     private ReservationType reservationType;
     private ReservationStatus reservationStatus;
     private boolean isInsuranceSelected;

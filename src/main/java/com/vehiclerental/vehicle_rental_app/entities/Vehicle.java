@@ -15,7 +15,7 @@ import org.springframework.data.mongodb.core.index.Indexed;
 @Getter
 @Setter
 @Document(collection = "vehicles")
-public class VehicleEntity {
+public class Vehicle {
 
     @Id
     private String vehicleId; // MongoDB ID, can be String or ObjectId
