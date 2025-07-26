@@ -1,27 +1,26 @@
 package com.vehiclerental.vehicle_rental_app.controller;
 
+import com.vehiclerental.vehicle_rental_app.constants.CommonConstants;
 import com.vehiclerental.vehicle_rental_app.model.CustomersListResponse;
 import com.vehiclerental.vehicle_rental_app.services.CustomerService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/customer")
+@RequestMapping(CommonConstants.CUSTOMERS_BASE)
+@AllArgsConstructor
 public class CustomerController {
 
+    @Autowired
     private final CustomerService customerService;
 
-    @Autowired
-    public CustomerController(CustomerService customerService) {
-        this.customerService = customerService;
-    }
-
-    @GetMapping("/all")
+    @GetMapping(CommonConstants.GET_ALL)
     public CustomersListResponse getAllCustomers() {
         return customerService.getAllCustomers();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping(CommonConstants.GET_BY_ID)
     public CustomersListResponse getCustomerById(@PathVariable String id) {
         return customerService.getCustomerById(id);
     }

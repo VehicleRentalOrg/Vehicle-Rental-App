@@ -1,7 +1,9 @@
 package com.vehiclerental.vehicle_rental_app.controller;
 
+import com.vehiclerental.vehicle_rental_app.constants.CommonConstants;
 import com.vehiclerental.vehicle_rental_app.entities.Vehicle;
 import com.vehiclerental.vehicle_rental_app.services.VehicleService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,39 +11,28 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/vehicle")
+@RequestMapping(CommonConstants.VEHICLE_BASE)
+@AllArgsConstructor
 public class VehicleController {
 
-    private final VehicleService vehicleService;
     @Autowired
-    public VehicleController(final VehicleService vehicleService) {
-        this.vehicleService = vehicleService;
-    }
+    private final VehicleService vehicleService;
 
-    @GetMapping("/all")
+    @GetMapping(CommonConstants.GET_ALL)
     public List<Vehicle> getAllVehicles() {
         return vehicleService.getAllVehicles();
     }
 
-    @GetMapping("/id")
-    public Optional<Vehicle> getVehicleById(@RequestParam String id) {
+    @GetMapping(CommonConstants.GET_BY_ID)
+    public Optional<Vehicle> getVehicleById(@PathVariable String id) {
         return vehicleService.getVehicleById(id);
     }
 
-    @PostMapping("/create")
+    @PostMapping(CommonConstants.CREATE)
     public void createVehicle(@RequestBody Vehicle vehicle) {
         vehicleService.createVehicle(vehicle);
     }
 
-    @GetMapping("/api/hello")
-    public String publicHello() {
-        return "Hello, This is a public endpoint!";
-    }
-
-    @GetMapping("/secure/hello")
-    public String secureHello() {
-        return "Hello, This is a secured endpoint!";
-    }
 }
 
 

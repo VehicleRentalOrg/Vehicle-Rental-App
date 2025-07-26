@@ -14,10 +14,10 @@ import java.time.LocalDateTime;
 public class GlobalControllerAdvice {
 
     @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<BaseResponse<Object>> resourceNotFoundException(ResourceNotFoundException e, HttpServletRequest request) {
+    public ResponseEntity<BaseResponse> resourceNotFoundException(ResourceNotFoundException e, HttpServletRequest request) {
         Long startTime = (Long) request.getAttribute("startTime");
         long duration = (startTime != null) ? (System.currentTimeMillis() - startTime) : 0;
-        BaseResponse<Object> response = BaseResponse.builder()
+        BaseResponse response = BaseResponse.builder()
                 .status(HttpStatus.NOT_FOUND.value())
                 .message(e.getMessage())
                 .path(request.getRequestURI())

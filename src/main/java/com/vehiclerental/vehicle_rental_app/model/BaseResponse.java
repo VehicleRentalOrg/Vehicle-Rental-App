@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class BaseResponse<T> {
+public class BaseResponse {
     private int status;
     private String message;
     private String path;
