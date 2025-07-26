@@ -24,6 +24,8 @@ public class Vehicle {
 
     private Integer year;
 
+    private String model;
+
     private String colour;
 
     @Indexed(unique = true)
