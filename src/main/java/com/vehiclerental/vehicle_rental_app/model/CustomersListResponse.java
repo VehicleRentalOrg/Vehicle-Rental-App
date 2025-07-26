@@ -8,6 +8,6 @@ import java.util.List;
 
 @Data
 @SuperBuilder
-public class CustomersListResponse extends BaseResponse<List<Customer>> {
+public class CustomersListResponse extends BaseResponse {
     private List<Customer> customerList;
 }
