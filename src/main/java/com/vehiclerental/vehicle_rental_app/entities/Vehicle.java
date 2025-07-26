@@ -24,7 +24,7 @@ public class Vehicle {
 
     private Integer year;
 
-    private String colour;
+    private String color;
 
     @Indexed(unique = true)
     private String vin;
