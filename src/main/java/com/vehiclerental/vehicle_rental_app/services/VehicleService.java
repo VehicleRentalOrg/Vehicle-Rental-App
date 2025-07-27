@@ -1,11 +1,12 @@
 package com.vehiclerental.vehicle_rental_app.services;
 
+import com.vehiclerental.vehicle_rental_app.constants.CommonConstants;
 import com.vehiclerental.vehicle_rental_app.entities.Vehicle;
 import com.vehiclerental.vehicle_rental_app.exception.ResourceNotFoundException;
 import com.vehiclerental.vehicle_rental_app.model.VehicleListResponse;
 import com.vehiclerental.vehicle_rental_app.repositories.VehicleRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,14 +20,14 @@ public class VehicleService {
 
     public VehicleListResponse getAllVehicles() {
         List<Vehicle> vehicles = vehicleRepository.findAll();
-        return VehicleListResponse.builder().status(200).message("Success").vehicleList(vehicles).build();
+        return VehicleListResponse.builder().status(HttpStatus.OK).message(CommonConstants.SUCCESS).vehicleList(vehicles).build();
     }
 
     public VehicleListResponse getVehicleById(String id) {
         Optional<Vehicle> optionalVehicle = vehicleRepository.findById(id);
 
         if (optionalVehicle.isPresent()) {
-            return VehicleListResponse.builder().status(200).message("Success").vehicleList(List.of(optionalVehicle.get())).build();
+            return VehicleListResponse.builder().status(HttpStatus.OK).message(CommonConstants.SUCCESS).vehicleList(List.of(optionalVehicle.get())).build();
         } else {
             throw new ResourceNotFoundException("Vehicle with ID " + id + " not found");
         }

@@ -1,33 +1,43 @@
 package com.vehiclerental.vehicle_rental_app.services;
 
+import com.vehiclerental.vehicle_rental_app.constants.CommonConstants;
 import com.vehiclerental.vehicle_rental_app.entities.Reservation;
+import com.vehiclerental.vehicle_rental_app.exception.ResourceNotFoundException;
+import com.vehiclerental.vehicle_rental_app.model.ReservationListResponse;
 import com.vehiclerental.vehicle_rental_app.repositories.ReservationRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ReservationService {
-    private final ReservationRepository reservationRepository;
 
-    @Autowired
-    public ReservationService(final ReservationRepository reservationRepository) {
-        this.reservationRepository = reservationRepository;
+    ReservationRepository reservationRepository;
+
+    public ReservationListResponse getAllReservations() {
+        List<Reservation> reservations = reservationRepository.findAll();
+        return ReservationListResponse.builder()
+                .status(HttpStatus.OK)
+                .message(CommonConstants.SUCCESS)
+                .reservationList(reservations)
+                .build();
     }
 
-    public List<Reservation> getAllReservations() {
-        return reservationRepository.findAll();
+    public ReservationListResponse getReservationById(String id) {
+        Reservation reservation = reservationRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Reservation with ID " + id + " not found"));
+
+        return ReservationListResponse.builder()
+                .status(HttpStatus.OK)
+                .message(CommonConstants.SUCCESS)
+                .reservationList(List.of(reservation))
+                .build();
     }
 
-    public Optional<Reservation> getReservationById(String id) {
-        return reservationRepository.findById(id);
-    }
-
-    public void createReservation(Reservation reservation) {
-        reservationRepository.save(reservation);
-    }
+//    public void createReservation(Reservation reservation) {
+//        reservationRepository.save(reservation);
+//    }
 
 
 }

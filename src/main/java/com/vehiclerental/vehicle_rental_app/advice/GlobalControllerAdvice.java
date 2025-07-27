@@ -18,7 +18,7 @@ public class GlobalControllerAdvice {
         Long startTime = (Long) request.getAttribute("startTime");
         long duration = (startTime != null) ? (System.currentTimeMillis() - startTime) : 0;
         BaseResponse response = BaseResponse.builder()
-                .status(HttpStatus.NOT_FOUND.value())
+                .status(HttpStatus.NOT_FOUND)
                 .message(e.getMessage())
                 .path(request.getRequestURI())
                 .responseTime(duration + "ms")

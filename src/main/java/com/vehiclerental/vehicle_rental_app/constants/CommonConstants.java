@@ -13,4 +13,6 @@ public class CommonConstants {
     public static final String GET_BY_ID = "/{id}";
     public static final String CREATE = "/create";
 
+    // status
+    public static final String SUCCESS= "Success";
 }
