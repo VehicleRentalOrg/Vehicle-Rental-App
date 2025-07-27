@@ -26,6 +26,8 @@ public class Vehicle {
 
     private String color;
 
+    private String model;
+
     @Indexed(unique = true)
     private String vin;
 
