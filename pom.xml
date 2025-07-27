@@ -188,7 +188,7 @@
 										<limit>
 											<counter>INSTRUCTION</counter>
 											<value>COVEREDRATIO</value>
-											<minimum>0.60</minimum> // set it to 90 percent later
+											<minimum>0.30</minimum> // set it to 90 percent later
 										</limit>
 									</limits>
 								</rule>

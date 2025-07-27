@@ -32,9 +32,9 @@ public class VehicleServiceTest {
 
     @Test
     void getAllVehicles_shouldReturnListOfVehicles() {
-        Vehicle v1 = new Vehicle("V001", "Toyota", 2020, "Red", "VIN1234567890",
+        Vehicle v1 = new Vehicle("V001", "Toyota", 2020, "Red", "Camry", "VIN1234567890",
                 VehicleType.SEDAN, VehicleStatus.AVAILABLE, "Sunroof, Bluetooth", 35000);
-        Vehicle v2 = new Vehicle("V002", "Honda", 2022, "Black", "VIN0987654321",
+        Vehicle v2 = new Vehicle("V002", "Honda", 2022, "Black", "Civic", "VIN0987654321",
                 VehicleType.SUV, VehicleStatus.RENTED, "Navigation, Heated Seats", 15000);
 
         when(vehicleRepository.findAll()).thenReturn(List.of(v1, v2));
@@ -50,7 +50,7 @@ public class VehicleServiceTest {
 
     @Test
     void getVehicleById_shouldReturnOneVehicle() {
-        Vehicle v = new Vehicle("V003", "Ford", 2021, "Blue", "VIN3333333333",
+        Vehicle v = new Vehicle("V003", "Ford", 2021, "Blue", "Mustang", "VIN3333333333",
                 VehicleType.HATCHBACK, VehicleStatus.AVAILABLE, "Bluetooth, Backup Camera", 20000);
 
         when(vehicleRepository.findById("V003")).thenReturn(Optional.of(v));

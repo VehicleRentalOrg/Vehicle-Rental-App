@@ -47,8 +47,8 @@ class VehicleControllerTest {
 
     @Test
     void getAllVehicles_shouldReturnOk() throws Exception {
-        Vehicle vehicle1 = new Vehicle("V001", "Toyota", 2020, "Red", "VIN1234567890", VehicleType.SEDAN, VehicleStatus.AVAILABLE, "Sunroof, Bluetooth", 35000);
-        Vehicle vehicle2 = new Vehicle("V002", "Ford", 2022, "Black", "VIN0987654321", VehicleType.SUV, VehicleStatus.RENTED, "Navigation, Heated Seats", 12000);
+        Vehicle vehicle1 = new Vehicle("V001", "Toyota", 2020, "Red", "Camry", "VIN1234567890", VehicleType.SEDAN, VehicleStatus.AVAILABLE, "Sunroof, Bluetooth", 35000);
+        Vehicle vehicle2 = new Vehicle("V002", "Ford", 2022, "Black", "Mustang", "VIN0987654321", VehicleType.SUV, VehicleStatus.RENTED, "Navigation, Heated Seats", 12000);
 
         VehicleListResponse mockList = VehicleListResponse.builder().status(HttpStatus.OK).message("Success").vehicleList(List.of(vehicle1, vehicle2)).build();
 
@@ -62,7 +62,7 @@ class VehicleControllerTest {
 
     @Test
     void getVehicleById_shouldReturnOk() throws Exception {
-        Vehicle vehicle = new Vehicle("V001", "Toyota", 2020, "Red", "VIN1234567890", VehicleType.SEDAN, VehicleStatus.AVAILABLE, "Sunroof, Bluetooth", 35000);
+        Vehicle vehicle = new Vehicle("V001", "Toyota", 2020, "Red", "Corolla", "VIN1234567890", VehicleType.SEDAN, VehicleStatus.AVAILABLE, "Sunroof, Bluetooth", 35000);
 
         VehicleListResponse mockResponse = VehicleListResponse.builder().status(HttpStatus.OK).message("Success").vehicleList(List.of(vehicle)).build();
 
